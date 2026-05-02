@@ -7,8 +7,6 @@ for (let i = 1; i <= totalImages; i++) {
   const img = document.createElement("img");
 
   img.src = `img1 (${i}).jpg`;
-
-  // ✅ lazy loading
   img.loading = "lazy";
   img.decoding = "async";
 
@@ -24,41 +22,20 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 
-// observe all images AFTER creation
+// observe all images
 document.querySelectorAll(".gallery img").forEach(img => {
   observer.observe(img);
 });
-
-img.classList.add("show");
 
 /* 🔍 VIEWER */
 const viewer = document.getElementById("viewer");
 const viewerImg = document.getElementById("viewerImg");
 const closeBtn = document.getElementById("closeBtn");
 
-gallery.addEventListener("click", (e) => {
-  if (e.target.tagName === "IMG") {
-    viewer.style.display = "flex";
-    viewerImg.src = e.target.src;
-  }
-});
-
-closeBtn.onclick = () => viewer.style.display = "none";
-
-viewer.onclick = (e) => {
-  if (e.target === viewer) {
-    viewer.style.display = "none";
-  }
-};
-
-const viewer = document.getElementById("viewer");
-const viewerImg = document.getElementById("viewerImg");
-const closeBtn = document.getElementById("closeBtn");
-
 let currentIndex = 0;
 
-// click image (works for all 447 images)
-document.querySelector(".gallery").addEventListener("click", (e) => {
+// click image (works for all images)
+gallery.addEventListener("click", (e) => {
   if (e.target.tagName === "IMG") {
     const images = document.querySelectorAll(".gallery img");
 
@@ -68,17 +45,26 @@ document.querySelector(".gallery").addEventListener("click", (e) => {
   }
 });
 
-// close
-closeBtn.onclick = () => viewer.style.display = "none";
+// close viewer
+closeBtn.onclick = () => {
+  viewer.style.display = "none";
+};
 
-// next
+// click outside to close
+viewer.onclick = (e) => {
+  if (e.target === viewer) {
+    viewer.style.display = "none";
+  }
+};
+
+// next image
 function nextImg() {
   const images = document.querySelectorAll(".gallery img");
   currentIndex = (currentIndex + 1) % images.length;
   viewerImg.src = images[currentIndex].src;
 }
 
-// prev
+// previous image
 function prevImg() {
   const images = document.querySelectorAll(".gallery img");
   currentIndex = (currentIndex - 1 + images.length) % images.length;
