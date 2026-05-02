@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, #000000, #0a0a0a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* 🎁 GIFT */
+.gift-container {
+  text-align: center;
+  cursor: pointer;
+}
+
+.gift-box {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.box {
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(45deg, #ff0000, #ff4d4d);
+  position: absolute;
+  bottom: 0;
+  border-radius: 10px;
+}
+
+.lid {
+  width: 150px;
+  height: 50px;
+  background: linear-gradient(45deg, #990000, #cc0000);
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  transition: transform 1s ease;
+  transform-origin: top;
+}
+
+.lid.open {
+  transform: rotateX(120deg);
+}
+
+/* 💔 STORY */
+#story {
+  position: absolute;
+  width: 90%;
+  text-align: center;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#text {
+  font-size: 24px;
+  line-height: 1.6;
+  text-shadow: 
+    0 0 6px rgba(255,255,255,0.35),
+    0 0 10px rgba(255,80,80,0.2);
+}
+
+/* ✨ GLOW */
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 25px #ff4d4d; }
+}
+
+/* hide button separately */
+.btn-hidden {
+  display: none;
+}
+
+/* button style */
+#nextBtn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff4d4d, #ff1a1a);
+  color: white;
+  cursor: pointer;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+
+  .gift-box {
+    width: 120px;
+    height: 120px;
+  }
+
+  .box {
+    width: 120px;
+    height: 80px;
+  }
+
+  .lid {
+    width: 120px;
+    height: 40px;
+  }
+
+  #text {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+#lockScreen input {
+  padding: 10px;
+  margin: 10px;
+}
+
+#lockScreen button {
+  padding: 10px 20px;
+  cursor: pointer;
+}

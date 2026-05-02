@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Story</title>
+
+  <!-- Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- 🎁 GIFT -->
+<div class="gift-container" onclick="openGift()">
+  <div class="gift-box">
+    <div class="lid"></div>
+    <div class="box"></div>
+  </div>
+  <p>Tap to open your surprise 🎁</p>
+</div>
+
+<div id="story" class="hidden">
+  <h1 id="text"></h1>
+
+  <button id="nextBtn" class="btn-hidden" onclick="goToMemories()">
+    Let’s Move to Memories ❤️
+  </button>
+</div>
+<audio id="bgMusic" loop>
+  <source src="Snehithuda - Bgm _ Violin.mp3" type="audio/mpeg">
+</audio>
+
+<div id="lockScreen">
+  <h2>Enter Password 🔒</h2>
+  <input type="password" id="passInput" placeholder="Enter password">
+  <button onclick="checkPassword()">Unlock</button>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
