@@ -2,8 +2,7 @@ const gallery = document.getElementById("gallery");
 
 const totalImages = 447;
 
-// 🔥 create images
-for (let i = 1; i <= totalImages; i++) {
+
   const img = document.createElement("img");
 
   img.src = `img1 (${i}).jpg`;
